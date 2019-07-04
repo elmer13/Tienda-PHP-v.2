@@ -1,0 +1,172 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.4.1
+-- http://www.phpmyadmin.net
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 26-02-2014 a las 10:36:18
+-- Versión del servidor: 5.6.11
+-- Versión de PHP: 5.5.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Base de datos: `tienda-elmer`
+--
+CREATE DATABASE IF NOT EXISTS `tienda-elmer` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `tienda-elmer`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `articulos`
+--
+
+CREATE TABLE IF NOT EXISTS `articulos` (
+  `codigo_articulo` varchar(5) NOT NULL,
+  `id_categoria` int(11) NOT NULL,
+  `nombre` text NOT NULL,
+  `marca` text NOT NULL,
+  `precio` int(11) NOT NULL,
+  `fotoarticulo` text NOT NULL,
+  `descripcion` text NOT NULL,
+  PRIMARY KEY (`codigo_articulo`),
+  KEY `id_categoria` (`id_categoria`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `articulos`
+--
+
+INSERT INTO `articulos` (`codigo_articulo`, `id_categoria`, `nombre`, `marca`, `precio`, `fotoarticulo`, `descripcion`) VALUES
+('1111A', 1, 'Ordenador portátil - Lenovo G505', 'Lenovo', 300, 'fotoarticulo/portatil_lenovo_2.png', 'Este es sin duda el dispositivo ágil que estabas esperando, con 320GB de almacenamiento y 4GB de memoria RAM, que se combinan a la perfección con la magnífica tarjeta gráfica AMD Radeon HD 8210 y su calidad de imagen HD. Podrás jugar con tus juegos o reproducir tus vídeo en máxima calidad; sean tus películas favoritas o las grabaciones que realizes con tu Webcam a 720p HD. Pero si por algo destaca el nuevo Essential Notebook G505s es por su sistema Dolby Advanced Audio; disfruta de un sonido increíble con la mayor calidad posible.'),
+('1111B', 1, 'Ordenador portátil - Acer V5-123', 'Acer', 349, 'fotoarticulo/portatil_acer_3.jpg', '¡Disfruta de todas las prestaciones que te ofrece un ordenador portátil tan ligero y versátil como este Acer V5-123! Con una pantalla LCD retroiluminada de 11.6 pulgadas y una resolución de 1366 x 768, este portátil ultraligero es el compañero ideal tanto para trabajar como para estudiar o divertirte. Conéctate con el mundo a través de su conexión WiFi o a través de Bluetooth y mueve información de un lugar a otro utilizando sus puertos USB o su ranura para tarjetas SD. Además, podrás enchufar tu portátil a, por ejemplo, un televisor, gracias a su conexión HDMI, y disfrutar de la mejor música con los dos altavoces estéreo integrados que lleva este portátil ultraligero Acer V5-123.'),
+('1111C', 1, 'Impresora Láser - Samsung SL', 'Láser', 79, 'fotoarticulo/impresora_samsung.jpg', 'Si lo que buscas para tu hogar es una impresora láser monocromo tan fiable y funcional como una profesional, la nueva impresora láser Samsung SL-M2022/SEE es todo lo que necesitas. Un aparato compacto y elegante que podrás poner en tu escritrio y que ofrece unos resultados profesionales.\r\n\r\nCompatible con Windows 8, 7, Vista, XP, 2000, 2008R2, 2008, 2003, Mac OS X 10.5 - 10.8 y Linux, esta impresora te ofrece un ciclo de trabajo mensual de hasta 10000 páginas. ¡Ya te habíamos dicho que era casi profesional!\r\n\r\nAdemás, esta impresora láser monocromo de Samsung te brinda la posibilidad de imprimir en multitud de formatos: A4, A5, Carta, Legal, Ejecutivo, Folio, Oficio, Sobre... ¡Más es imposible!'),
+('1111D', 1, 'Monitor - Asus VE278N', 'Asus', 199, 'fotoarticulo/monitor_asus.jpg', 'Porque la tecnología y la belleza no tienen por qué estar reñidas, Asus lanza el monitor VE278N, inspirado en la elegancia minimalista y con las mejores prestaciones para ofrecerte una calidad de imagen sin precedentes. Su diseño ultra fino, moderno y ergonómico encajará en cualquier estancia aportando un toque chic y exclusivo. ¡Descúbrelo!\r\n\r\nLas imágenes más realistas brotan de su pantalla panorámica LED de 27 pulgadas, con 1920 x 1080 píxeles de resolución Full HD con 16.7 millones de colores que te garantizan imágenes más nítidas, llenas de color y matices, incluso con luz ambiental. Ponte cómodo y empieza a disfrutar de tu nuevo monitor Asus VE278N en cualquier situación o posición, ya que dispone de un ángulo de visión de 170º para que sea él quien se adapte a ti y no tú a él. '),
+('2222A', 2, 'Teléfono - HTC One Max Silver', 'HTC', 749, 'fotoarticulo/movil_htc.jpg', '¡Este HTC lo tiene todo! El sistema operativo más aclamado por los usuarios (Android), el mejor sonido envolvente que puedas encontrar en un smartphone, detector de huella dactilar, cámara frontal y trasera con decenas de funciones, un potentísimo procesador, 16GB de memoria para guardar todas tus cosas y todas las conexiones de ayer, hoy y mañana, para que no te falta de nada. \r\n\r\nLa enorme pantalla táctil de 5.9 pulgadas te ofrece una excelente resolución Full HD para que disfrutes como un niño viendo tus pelis con la mejor calidad de imagen. Calidad que queda complementada a la perfección con la tecnología HTC BoomSound™ que integran los dos altavoces estéreo, con amplificador integrado en la parte frontal. Una experiencia audiovisual impensable hasta ahora en un móvil y de la que tu serás el mayor beneficiado.'),
+('2222B', 2, 'iPhone 5S Space Gray', 'Apple', 689, 'fotoarticulo/movil_iphone.gif', 'Un móvil que va más allá. Ha sido creado pensando en ti y tu comodidad, sin renunciar al exclusivo y fino diseño de Apple. Innovación inteligente que pone las últimas tecnologías al servicio de la gente, y no al revés, ¡porque eso es el progreso! Una amplísima memoria de 16GB para que guardes sin problemas todas tus fotos, vídeos, aplicaciones y demás. Un sensor de identidad, cámaras más rápidas y de mayor calidad, un sistema operativo diseñado especialmente para él y un procesador súper rápido, convierten al iPhone 5S en un adelantado a su tiempo.\r\n\r\nSu exterior está cubierto por una resistente carcasa de aluminio y su amplia pantalla retina de 4 pulgadas dispone de una cobertura oleófuga anti-huellas que la mantendrá siempre como el primer día, dándole un toque elegante al conjunto.'),
+('2222C', 2, 'Teléfono - Samsung Galaxy S4', 'Samsung', 496, 'fotoarticulo/movil_samsung.jpg', 'Galaxy S4 viene preparado para todo. Estar conectado 24/7 ya no es una novedad. Llamar a un amigo que está en el extranjero, visualizar fotos y videos sin tocar el teléfono, conectar tu S4 a tu smart Tv, recibir sugerencias para que programa de Tv ver basándote en tus preferencias.. pero... ¿qué me dices si pudieras hacer todo esto más rápido que nadie y con las mejores calidades, solo con Samsung Galaxy S4?\r\nTu nuevo smartphone Galaxy S4 incorpora HSPA+42Mbps y 4G LTE, lo que significa que estés donde estés podremos disponer de una conectividad potente y rápida. También incluye conectividad NFC, WiFi, Bluetooth 4.0, IR LED, MHL y la posibilidad de conexión Homesync. La primera pantalla super Amoled Full HD de 5 pulgadas y 441ppi. Dual Cámara de 13 megapíxeles y Más Música.'),
+('2222D', 2, 'Teléfono - Acer Liquid S1', 'Acer', 299, 'fotoarticulo/movil_acer.jpg', 'Los móviles de hoy en día cada día se parecen más a los ordenadores, tanto por prestaciones como por sus componentes mejorados. ¿Y qué mejor que optar por una marca líder en informática para tu nuevo smartphone? Ahora ya es posible gracias al Acer Liquid S1. Un pedazo de móvil de alta gama y bajo coste, que te hará flipar toda la gama de colores en su gran pantalla de 5.7 pulgadas y gran resolución HD. \r\n\r\nCuenta con dos ranuras para tarjetas telefónicas, así podrás llevar dos números de teléfono en un mismo terminal. Es la solución perfecta para separar lo profesional de lo personal, sin tener que ir cargando con dos móviles. Aunque esa sea una de las principales funciones de que tenga Dual SIM, sus posibilidades son muchas. ¡Descúbrelas!'),
+('3333A', 3, 'Cámara - Olympus SH-25', 'Olympus', 139, 'fotoarticulo/camara_olympus.jpg', 'Ha llegado el momento de renovar tu cámara y, a este precio, ya no tienes excusa. Esta cámara compacta es extremadamente ligera y su tamaño compacto te permite llevarla siempre contigo. Almacena tus recuerdos en calidad Full HD, ya sean las fotos de tu último viaje o divertidos vídeos familiares.\r\n¿Eres de los que no se deciden? Esta función te permite hacer un retrato en primer plano, a la vez que realizas una fotografía gran angular del paisaje. Su rapidez de respuesta, deja sin palabras hasta a los más exigentes.\r\nPara esos paisajes que ponen la piel de gallina, no podían faltar imágenes que no tienen fin. Saca todo el partido a tu SH-25 y captura panorámicas que se convertirán es cuadros impresionantes. Además su gran angular de 24mm te permite capturar más en menos espacio.'),
+('3333B', 3, 'Videocámara - JVC Everio GZ-EX315WEU', 'Everio', 359, 'fotoarticulo/videocamara_jvc.jpg', 'Si te gusta compartir con los tuyos pero quieres imágenes de calidad consigue lo que estabas buscando con la nueva Everio GZ-EX315BEU. Si tienes que grabar vídeos que sean en calidad Full HD y para no tener que cargar también con la cámara toma fotos de 8.3 megapíxeles desde la misma videocámara. ¿Que lo tuyo es la acción? pues haz las dos cosas a la vez, podrás tomar fotos de hasta 2 megapíxeles mientras estás grabando un video en Full HD.\r\n\r\nPara que nunca te quedes a medias incorpora una batería de gran capacidad que te ofrece hasta 120 minutos de uso. No te arriesgues a quedarte sin batería en el momento más inoportuno.'),
+('3333C', 3, 'Cámara evil - Nikon AW1', 'Nikon', 749, 'fotoarticulo/camara_nikon_0.jpg', 'La cámara Nikon AW1 está diseñada para capturar la acción tanto en tierra como en el agua, está tan lista para la aventura como tú. Pero a la vez puede ser elegante y con clase, así que si tienes que ir a algún evento importante, también la podrás llevar contigo. Es resistente al agua hasta 15 metros durante 60 min., a prueba de golpes (caídas de hasta 2 m) y de congelación (hasta -10ºC), lo que la convierte en perfecta para realizar actividades acuáticas y de aventura. Lo impresionante de la Nikon AW1 es que sus objetivos 1 NIKKOR AW son igual de efectivos tanto en agua como en tierra. ¡Sí, sí como estás leyendo! la Evil AW1 de Nikon la puedes sumergir en agua sin que le pase nada.'),
+('3333D', 3, 'Cámara evil - Olympus E-PL5', 'Olympus', 549, 'fotoarticulo/camara_evil.jpg', 'Si quieres conseguir la mejor cámara évil de su categoría, hazte con la Olympus E-PL5 y tendrás calidad de imagen excelente en un formato compacto. Dispone de una gran pantalla LCD reclinable hasta 170º para hacer fotos desde ángulos difíciles de forma sencilla, Autoenfoque extremadamente rápido y disparo táctil tan sólo pulsando la pantalla y 12 Filtros artísticos integrados para desarrollar tu creatividad tanto en imágenes como en tus vídeos, incluso en Full HD.\r\n\r\nTe incluye un objetivo de 14-42mm con el podrás hacer la majoría de tus fotos cotidianas. Si de pronto te aficionas a fotografiar sellos solo tendrás que añadirle un objetivo macro o si prefieres tomar fotos de aviones un teleobjetivo, así de fácil y sin cambiar de cámara.'),
+('4444A', 4, 'PS3 FIFA 14', ' EA Sports ', 59, 'fotoarticulo/fifa_14.jpg', 'Vuelve el inconfundible, el excepcional simulador de futbol FIFA 14. Capaz de cautivar a millones de jugadores del mundo para convertirse en uno de los clásicos dentro del universo de los videojuegos.\r\n\r\nFIFA 14 regresa con multitud de mejoras, innovaciones y sorpresas para superarse una vez más de anteriores entregas. Disfruta como nunca de la emoción y tensión del futbol en estado puro. Un juego que refleja la esencia de cómo se disputan los grandes encuentros del fútbol, con una nueva jugabilidad que sirve de inspiración para todos los fanáticos como tú de la saga FIFA.'),
+('4444B', 4, 'PS3 GTA V - Grand Theft Auto', 'Rockstar Games ', 59, 'fotoarticulo/gta_v.jpg', 'Empieza a romper la hucha, liquidar tu cuenta bancaria  o pedirle a un colega pasta con tal de tener esta magnífica obra de arte. GTA V, quinta entrega de la afamada saga a mano de los aclamados Rockstar Games, que regresa con una nueva dirección en la libertad en mundo abierto, la narrativa, tres protagonistas, la jugabilidad basada en misiones y el multijugador online.\r\n\r\nGrand Theft Auto V se sitúa esta vez en Los Santos, una extensa y soleada metrópolis llena de gurús de autoayuda, aspirantes a estrellas y famosos en decadencia, en su día la envidia del mundo occidental, lucha ahora por mantenerse a flote en una era de incertidumbre económica y realities&#147; baratos. Una realidad actual marcada por el precario capitalismo donde las opciones de supervivencia se agotan, donde la banda protagonista de esta historia lo arriesgará todo en una serie de atrevidos y peligrosos atracos que marcarán sus vidas para siempre.'),
+('4444C', 4, 'Wii U Super Mario 3D World', 'Nintendo', 47, 'fotoarticulo/wii_mario_0.jpg', 'Una aventura emocionante, con infinitos secretos por descubrir e incalculables horas de diversión asegurada. ¿Te lo piensas perder? Vamos no seas el último de la clase o el último de tus colegsa para comprar esta mítica entrega de la saga Mario para tu consola Nintendo Wii U: Super Mario 3D World.\r\n\r\nEn esta ocasión la historia del juego empieza cuando Mario y sus amigos están disfrutando de una magnífica noche de fuegos artificiales en el Reino Champiñón. De repente se encuentran con una misteriosa tubería transparente, ¡y una princesa hada muy nerviosa! Y es que lo peor está por llegar… Poco tardan en enterarse de que Bowser ha vuelto a las andadas. Esta vez se está dedicando a embotellar hadas, ¡y luego se las queda como prisioneras! Aunque la catástrofe se hace presente cuando el malvado Bowser vuelve a aparecer y se lleva a su nueva amiga. Tranquilo porque Mario, Luigi, la Princesa Peach y Toad no tardarán ni un segundo en lanzarse por la tubería hasta el Reino de las Hadas para salvarla, ¡y para truncar una vez más los planes de Bowser! ¿Te unes a ellos?'),
+('4444D', 4, 'PS3 Gran Turismo 6 - GT6', 'Polyphony Digital', 69, 'fotoarticulo/gran_turismo.jpg', 'Ya tienes aquí uno de los grandes juegos de conducción. Un simulador que ha tenido enganchado a miles y miles de gamers durante todas las entregas de la saga: Gran Turismo 6. Una entrega que regresa con muchas novedades, un mejorado sistema de juego y una realidad visual con la que fliparás. No seas el último y cómprate ya GT6, esto es todo lo que te espera:\r\n\r\nEn esta entrega se han añadido más de 120 coches a la gama, lo que aumenta el número disponible hasta un total de más de 1200 bólidos. Abróchate el cinturón y pisa el acelerador de coches como los de la popular categoría FIA GT3, el pilar de la competición GT hoy en día.');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categorias`
+--
+
+CREATE TABLE IF NOT EXISTS `categorias` (
+  `codigo_categoria` int(3) NOT NULL AUTO_INCREMENT,
+  `categoria_nombre` varchar(30) NOT NULL,
+  PRIMARY KEY (`codigo_categoria`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`codigo_categoria`, `categoria_nombre`) VALUES
+(1, 'informatica'),
+(2, 'telefonia'),
+(3, 'fotografia'),
+(4, 'videojuegos');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `clientes`
+--
+
+CREATE TABLE IF NOT EXISTS `clientes` (
+  `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
+  `nif` varchar(200) NOT NULL,
+  `nombre` text NOT NULL,
+  `telefono` text NOT NULL,
+  `direccion` text NOT NULL,
+  `localidad` text NOT NULL,
+  `provincia` text NOT NULL,
+  `pais` text NOT NULL,
+  `codigopostal` text NOT NULL,
+  `email` text NOT NULL,
+  `password` text NOT NULL,
+  `rol` varchar(11) NOT NULL DEFAULT 'user',
+  PRIMARY KEY (`id_cliente`),
+  UNIQUE KEY `nif` (`nif`),
+  UNIQUE KEY `nif_2` (`nif`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`id_cliente`, `nif`, `nombre`, `telefono`, `direccion`, `localidad`, `provincia`, `pais`, `codigopostal`, `email`, `password`, `rol`) VALUES
+(1, '0222181', 'elmer', '657552178', 'C/ Villa 1ro de mayo', 'Santa cruz', 'Santa Cruz de la Sierra', 'Bolivia', '08950', 'elmer@hotmail.com', 'bbb5ff6dc3826b999a5cf0c2e7b2c889', 'admin'),
+(2, '419881321', 'juan', '655333891', 'Avenida Los torontos', 'Tomaica', 'Caracas', 'Venezuela', '03929', 'juan@hotmail.com', 'bbb5ff6dc3826b999a5cf0c2e7b2c889', 'user');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detalle_pedido`
+--
+
+CREATE TABLE IF NOT EXISTS `detalle_pedido` (
+  `id_pedido` int(11) NOT NULL,
+  `codigo_articulo` varchar(5) NOT NULL,
+  `cantidad` int(2) NOT NULL,
+  PRIMARY KEY (`id_pedido`,`codigo_articulo`),
+  KEY `codigo_articulo` (`codigo_articulo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pedidos`
+--
+
+CREATE TABLE IF NOT EXISTS `pedidos` (
+  `id_pedido` int(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  PRIMARY KEY (`id_pedido`,`id_cliente`),
+  KEY `id_cliente` (`id_cliente`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `articulos`
+--
+ALTER TABLE `articulos`
+  ADD CONSTRAINT `articulos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`codigo_categoria`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `detalle_pedido`
+--
+ALTER TABLE `detalle_pedido`
+  ADD CONSTRAINT `detalle_pedido_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedidos` (`id_pedido`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detalle_pedido_ibfk_2` FOREIGN KEY (`codigo_articulo`) REFERENCES `articulos` (`codigo_articulo`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
